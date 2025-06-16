@@ -106,13 +106,13 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
         wait-ms = <0>;
         tap-ms = <0>;
         bindings =
-            <&mo_press LCTRL>,
-            <&mo_press LSFT>,
-            <&mo_press LALT>,
+            <&macro_press LCTRL>,
+            <&macro_press LSFT>,
+            <&macro_press LALT>,
             <&pause_for_release>,
-            <&mo_release LALT>,
-            <&mo_release LSFT>,
-            <&mo_release LCTRL>;
+            <&macro_release LALT>,
+            <&macro_release LSFT>,
+            <&macro_release LCTRL>;
     };
 
     m_alt_tab: m_alt_tab {
