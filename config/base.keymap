@@ -109,7 +109,7 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
             <&macro_press LCTRL>,
             <&macro_press LSFT>,
             <&macro_press LALT>,
-            <&pause_for_release>,
+            <&macro_pause_for_release>,
             <&macro_release LALT>,
             <&macro_release LSFT>,
             <&macro_release LCTRL>;
