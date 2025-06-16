@@ -97,6 +97,25 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
       ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
 #endif
 
+/* Macros */
+ZMK_MACRO(m_alt_tab,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings = <&kp LALT>, <&kp TAB>, <&pause_for_release>, <&kr LALT>;
+)
+
+ZMK_MACRO(m_cmd_tab,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings = <&kp LGUI>, <&kp TAB>, <&pause_for_release>, <&kr LGUI>;
+)
+
+ZMK_MACRO(m_ctrl_tab,
+    wait-ms = <0>;
+    tap-ms = <0>;
+    bindings = <&kp LCTL>, <&kp TAB>, <&pause_for_release>, <&kr LCTRL>;
+)
+
 ZMK_BASE_LAYER(Base,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp Q         &kp W         &kp E         &kp R         &kp T       ,   &kp Y         &kp U         &kp I         &kp O         &kp P       ,
@@ -123,7 +142,7 @@ ZMK_BASE_LAYER(Sym,
 
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp C_VOL_UP  ___           ___           ___           &kp C_BRI_UP,   &kp K_COPY    &kp K_PASTE   &kp PG_UP     ___           ___         ,
+    &kp C_VOL_UP  m_ctrl_tab    m_alt_tab     m_cmd_tab     &kp C_BRI_UP,   &kp K_COPY    &kp K_PASTE   &kp PG_UP     ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &kp RALT    ,   &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
