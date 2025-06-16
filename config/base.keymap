@@ -17,7 +17,7 @@
 #define BASE 0
 #define SYM 1
 #define NAV 2
-wdefine FUN 3
+#define FUN 3
 
 #define XXX &none
 #define ___ &trans
