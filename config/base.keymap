@@ -70,13 +70,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 #include "combos.dtsi" // Must be sourced after HRM-combo hack.
 //#include "leader.dtsi"
 
-// Smart-mouse, requires tri-state module.
-//ZMK_TRI_STATE(
-//   smart_mouse, bindings = <&tog MOUSE>, <&none>, <&tog MOUSE>;
-//   ignored-key-positions =
-//       <LT1 LT2 LH0 LH1 RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RB1 RB2 RB3 RH0 RH1>;
-//   ignored-layers = <NAV FUN>;)
-
 /* Nav cluster */
 
 // Trigger tap-action on all interrupts.
@@ -87,9 +80,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
   hold-trigger-key-positions = <0>;
 
 &mt { MT_CORE };
-
-//ZMK_HOLD_TAP(mt_home, bindings = <&masked_home>, <&kp>; MT_CORE)
-//ZMK_HOLD_TAP(mt_end, bindings = <&masked_end>, <&kp>; MT_CORE)
 
 /* Custom behaviors */
 // Alt+Tab swapper, requires tri-state module.
@@ -115,7 +105,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &kp COMMA     &kp DOT       &kp SQT     ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &lt SYM SPACE &kp SPACE   ,   &kp ENTER     &lt NAV BACKSPACE
+                                              &mo SYM       &kp SPACE   ,   &kp ENTER     &lt NAV BACKSPACE
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴──────────────────╯
 )
 
@@ -125,31 +115,31 @@ ZMK_BASE_LAYER(Sym,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &kp RALT    ,   &kp MINUS     &kp N4        &kp N5        &kp N6        &kp EQUAL   ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           ___           &kp LS(LBKT)  &kp LS(RBKT)   ___         ,   &kp BSLH      &kp N1        &kp N2        &kp N3        &kp SLASH   ,
+    &caps_word    ___           &kp LS(LBKT)  &kp LS(RBKT)  ___         ,   &kp BSLH      &kp N1        &kp N2        &kp N3        &kp SLASH   ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   ___           &kp BACKSPACE
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
-ZMK_BASE_LAYER(Fun,
+ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp F12       &kp F7        &kp F8        &kp F9        ___         ,   ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___         ,
+    &kp C_VOL_UP  ___           ___           ___           &kp C_BRI_UP,   &kp K_COPY    &kp K_PASTE   &kp PG_UP     ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI F11 &hml LALT F4  &hml LSHFT F5 &hml LCTRL F6 ___         ,   ___           ___      ___      ___      ___         ,
+    &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &kp RALT    ,   &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp F10       &kp F1        &kp F2        &kp F3        ___         ,   ___       ___       ___       ___           ___         ,
+    &kp C_VOL_DN  &kp C_PREV    &kp C_PP      &kp C_NEXT    &kp C_BRI_DN,   ___           ___           &kp PG_DN     ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              ___           ___         ,   &kp C_MUTE    &kp C_PP
+                                              ___           &mo FUN     ,   ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
-ZMK_BASE_LAYER(Nav,
+ZMK_BASE_LAYER(Fun,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           &kp N7        &kp N8        &kp N9        ___         ,   ___           ___           ___           ___           ___         ,
+    &bootloader   &kp F7        &bt BT_PRV    &bt BT_NXT    &bt BT_CLR  ,   ___           &kp C_PREV    &kp C_VOL_UP  &kp C_NEXT    ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &hml LGUI N0  &hml LALT N4  &hml LSHFT N5 &hml LCTRL N6 ___         ,   ___           ___           ___           ___           ___         ,
+    &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &kp RALT    ,   ___           ___           ___            ___          ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           &kp N1        &kp N2        &kp N3        ___         ,   ___           ___           ___           ___           ___         ,
+    &kp F10       &kp F1        &kp F2        &kp F3        ___         ,   ___           ___           ___           ___           ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___         ,   ___           ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
