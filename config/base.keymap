@@ -98,7 +98,8 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
 #endif
 
 /* Macros */
-macros {
+/ {
+  macros {
     m_alt_tab: m_alt_tab {
         compatible = "zmk,behavior-macro";
         label = ALT_TAB;
@@ -110,6 +111,7 @@ macros {
             <&macro_pause_for_release>,     // Wait for macro key release
             <&macro_release LALT>;    // Release Left Alt
     };
+  };
 };
 
 ZMK_BASE_LAYER(Base,
