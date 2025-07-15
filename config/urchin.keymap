@@ -6,6 +6,7 @@
                  LM RM                                                         \
                  LB RB                                                         \
                  LH RH                                                         \
+                 &smart_mouse                                                  \
     )
 
 #include "zmk-helpers/key-labels/34.h"
