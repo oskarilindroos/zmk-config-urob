@@ -16,4 +16,5 @@
 ZMK_COMBO(esc,   &kp ESC,      RT3 RT2,     BASE, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(tab,   &kp TAB,      LT3 LT2,     BASE, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
-ZMK_COMBO(smart_mouse, &smart_mouse, LT4 RT4, BASE, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+// Smart mouse combo - press W + P together to activate smart mouse layer (following urob's pattern)
+ZMK_COMBO(smart_mouse, &smart_mouse, LT3 RT3, BASE, COMBO_TERM_FAST, COMBO_IDLE_FAST)
